@@ -1,0 +1,22 @@
+html{
+  box-sizing: border-box;
+}
+
+*, 
+*::after, 
+*::before{
+  box-sizing: inherit;
+  padding: 0px;
+  margin: 0px;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul, ol {
+  list-style: none;
+}

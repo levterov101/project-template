@@ -1,0 +1,36 @@
+$gray1: #4E4B66;
+$gray2: #6E7191;
+$gray3: #00000033;
+$gary4: #6E7191;
+$gray5: #F1F1F1;
+$gray6: #C2C4D2;
+$gray7: #A0A3BC;
+$infobanner: #FDE9DE;
+$orange: #F56E1E;
+$orange2: #DE5703;
+$orange3: #DE4503;
+
+@mixin flex-center{
+  display: flex;
+  justify-content: center;
+}
+
+$breakpoints: (
+  small: 365px,
+  medium: 950px,
+  large: 1430px,
+);
+
+body{
+  font-family: GolosText;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1430px;
+  margin: 0px auto;
+  padding: 0px 10px;
+}
+
