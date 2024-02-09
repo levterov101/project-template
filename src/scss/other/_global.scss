@@ -22,15 +22,37 @@ $breakpoints: (
 );
 
 body{
+  position: relative;
+
   font-family: GolosText;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
+.body--blocked{
+  height: 100%;
+  overflow: hidden;
+}
+
 .container {
-  max-width: 1430px;
+  max-width: map-get($map: $breakpoints, $key: large);
   margin: 0px auto;
   padding: 0px 10px;
 }
 
+@media(max-width: map-get($map: $breakpoints, $key: large)){
+
+  .container {
+    max-width: map-get($map: $breakpoints, $key: medium);
+  }
+
+}
+
+@media(max-width: map-get($map: $breakpoints, $key: medium)){
+
+  .container {
+    max-width: map-get($map: $breakpoints, $key: small);
+  }
+
+}

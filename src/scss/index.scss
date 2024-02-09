@@ -14,4 +14,34 @@
 /* Импорт компонентов end */
 
 
+.main{
+  margin-top: 50px;
+}
+
+.test-list{
+  &__block{
+    display: block;
+      background-color: $orange;
+      height: 400px;
+      margin-bottom: 20px;
+  }
+}
+
+.block1{
+  background-color: $gray6;
+}
+.block2{
+  background-color: $gray1;
+}
+.block3{
+  background-color: $gary4;
+}
+.block4{
+  background-color: $orange;
+}
+.block5{
+  background-color: $orange3;
+}
+
+
 @import './other/pagescss/footer.scss'; 
