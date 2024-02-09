@@ -27,7 +27,7 @@ function infoNavInit(){
             firstAdd = false;
           }
         }
-      }
+      };
 
       if(clickedBlock.classList.contains(infoBlockActive)){
 
@@ -48,19 +48,40 @@ function infoPhonesInit(){
   const infoPhoneListActive = "phones__list--active";
 
   const phoneCurrent = document.querySelector(".phones__current");
-  phoneCurrent.addEventListener("mouseup", (e)=>{
+    phoneCurrent.addEventListener("mouseup", (e)=>{
     var container = e.target.closest(".phones");
     var current = container.querySelector(".phones__current");
     var list = container.querySelector(".phones__list");
+
+    let firstAdd = false;
+
+
+    var closeNav = function(e){
+      let closest = e.target.closest(".info-item__list");
+      if(closest === null){
+        if(!firstAdd){
+          current.classList.remove(infoPhoneActive);
+          list.classList.remove(infoPhoneListActive);
+          document.removeEventListener(e.type, closeNav);
+        }
+        else{
+          firstAdd = false;
+        }
+      }
+    };
+    
 
     if(current.classList.contains(infoPhoneActive)){
 
     }
     else{
-      
+      document.addEventListener("mouseup", closeNav);
+        current.classList.add(infoPhoneActive);
+        list.classList.add(infoPhoneListActive);
+        firstAdd = true;
     }
   });
 }
 
 
-export {infoBlockInit}
+export {infoBlockInit, infoPhonesInit}

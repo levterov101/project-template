@@ -492,6 +492,7 @@
     display: flex;
     align-items: center;
     cursor: pointer;
+    white-space: nowrap;
 
     padding-left: 8px;
     padding-right: 8px;
@@ -510,7 +511,6 @@
 
     &--active{
       background-color: $gray5;
-      
     }
   }
 
@@ -553,6 +553,16 @@
   }
 }
 
+.phone-btn{
+  border-radius: 8px;
+  padding: 0px 10px;
+  margin-left: 40px;
+
+  & svg{
+    margin-right: 7px;
+  }
+}
+
 /* Adaptive */
 
 
@@ -563,6 +573,11 @@
   .header{
     &__logo{
       height: 55px;
+    }
+
+    &__info-right{
+      flex-grow: 1;
+      justify-content: space-between;
     }
   }
   
@@ -588,6 +603,30 @@
     font-size: 12px;
     font-weight: 400;
   }
+
+  .phones{
+    margin-left: auto;
+  }
+
+  .phone-btn{
+    margin-left: 20px;
+    &__text{
+      display: none;
+    }
+
+    & svg{
+      margin-right: 0px;
+    }
+  }
+
+
+  .info-nav{
+    margin-right: 20px;
+  }
+
+  .slogan{
+    display: none;
+  }
 }
 
 @media(max-width: map-get($map: $breakpoints, $key: medium)){
@@ -603,6 +642,13 @@
 
     &__logo{
       order: 2;
+    }
+
+    &__info{
+      height: 0px;
+      width: 0px;
+      position: absolute;
+      overflow: hidden;
     }
   }
 

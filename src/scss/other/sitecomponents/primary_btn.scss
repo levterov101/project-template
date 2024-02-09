@@ -1,0 +1,21 @@
+.site-btn{
+  cursor: pointer;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $orange;
+  color: white;
+
+  &:hover{
+    transition: all 0.3s ease;
+
+    background-color: $orange2;
+  }
+
+  &:active{
+    transition: none;
+
+    background-color: $orange3;
+  }
+}
