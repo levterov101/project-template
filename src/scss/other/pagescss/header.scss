@@ -4,7 +4,6 @@
 }
 
 .header{
-  padding-top: 10px;
   background-color: white;
   
   position: sticky;
@@ -15,6 +14,120 @@
     img{
       height: 100%;
       object-fit: cover;
+    }
+  }
+
+  &__info{
+    padding-top: 4px;
+    padding-bottom: 9px;
+  }
+
+  &--active{
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+
+    background: transparent;
+
+    & > *{
+      width: 100%;
+    }
+
+    .top-header{
+      padding-bottom: 56px;
+    }
+  }
+
+  &__top-container{
+    background-color: white;
+  }
+  
+}
+
+.top-header{
+  padding-top: 10px;
+  background-color: white;
+}
+
+.catalog{
+  display: flex;
+  flex-direction: row;
+
+  &--active{
+    flex-grow: 1;
+  }
+  
+  &__right{
+    flex-grow: 1;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+
+  &__left{
+    flex-grow: 1;
+    background-color: white;
+  }
+
+  &__main{
+    display: flex;
+    padding-left: 90px;
+    background-color: white;
+  }
+
+  &__container{
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.4);
+    width: map-get($map: $breakpoints, $key: large);
+  }
+}
+
+.main-catalog{
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-right: 15px;
+
+  &__item{
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  &__header{
+    margin-right: auto;
+    margin-left: 12px;
+  }
+
+  &__link{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: $gary4;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 5px 16px;
+
+    svg{
+      path{
+        transition: all 0.3s ease;
+        stroke: $gary4;
+      }
+    }
+
+    transition: all 0.3s ease;
+
+    &:hover{
+      background-color: $orange;
+      color: white;
+      & > svg{
+        path{
+          transition: all 0.3s ease;
+          stroke: white;
+        }
+      }
     }
   }
 }
