@@ -59,6 +59,7 @@
 
   &--active{
     flex-grow: 1;
+    overflow-y: hidden;
   }
   
   &__right{
@@ -84,51 +85,146 @@
   }
 }
 
+.scrollbar{
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar{
+    margin-right: 4px;
+    width: 8px;
+  }
+  &::-webkit-scrollbar-thumb{
+    background-color: $gary4;
+    border-radius: 4px;
+  }
+}
+
 .main-catalog{
   max-width: 350px;
   display: flex;
   flex-direction: column;
   gap: 8px;
   padding-right: 15px;
+  overflow-y: scroll;
 
   &__item{
     border-radius: 12px;
-    overflow: hidden;
-  }
-
-  &__header{
-    margin-right: auto;
-    margin-left: 12px;
-  }
-
-  &__link{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: $gary4;
-    font-size: 16px;
-    font-weight: 600;
-    padding: 5px 16px;
-
-    svg{
-      path{
-        transition: all 0.3s ease;
-        stroke: $gary4;
-      }
-    }
-
-    transition: all 0.3s ease;
 
     &:hover{
       background-color: $orange;
       color: white;
-      & > svg{
+      & svg{
         path{
-          transition: all 0.3s ease;
+          transition: all 0.2s ease;
           stroke: white;
         }
       }
     }
+    &--active{
+      background-color: $orange;
+      color: white;
+      svg{
+        path{
+          transition: all 0.2s ease;
+          stroke: white;
+        }
+      }
+    }
+  }
+
+  &__wrapper{
+    display: flex;
+    padding-right: 10px;
+  }
+
+  &__header{
+    margin-right: auto;
+  }
+
+  &__link{
+    transition: all 0.2s ease;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 5px 16px;
+
+
+    svg{
+      path{
+        transition: all 0.2s ease;
+        stroke: $gary4;
+      }
+    }
+  }
+}
+
+.subcategories{
+  display: flex;
+  width: 0px;
+  height: 100%;
+
+  &__item{
+    width: 0;
+    overflow: hidden;
+    &--active{
+      overflow: visible;
+    }
+  }
+}
+
+.subcategory{
+  display: flex;
+  flex-direction: column;
+
+  transition: all 0.3s ease;
+  height: 100%;
+  width: 0px;
+  padding-left: 30px;
+  padding-right: 30px;
+  gap: 15px;
+  overflow: hidden;
+
+  background-color: white;
+
+  border-left: 1px solid $gray6;
+
+  &--active{
+    width: 300px;
+  }
+
+  &__item{
+    max-width: 80%;
+  }
+
+  &__link{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: $gary4;
+    font-style: 16px;
+    font-weight: 400;
+    line-height: 20px;
+
+    &:hover{
+      color: $orange;
+    }
+  }
+
+  &__header{
+    text-transform: lowercase;
+    &::first-letter{
+      text-transform: uppercase;
+    }
+  }
+
+  .category__header{
+    font-size: 18px;
+    font-weight: 600;
+    color: $orange;
+    padding: 10px 0px 10px 0px;
   }
 }
 
