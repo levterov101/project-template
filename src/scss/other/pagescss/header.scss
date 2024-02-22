@@ -789,6 +789,15 @@
       justify-content: space-between;
     }
   }
+
+  .catalog{
+    &__container{
+      width: map-get($map: $breakpoints, $key: medium);
+    }
+    &__main{
+      padding-left: 0;
+    }
+  }
   
   .catalog__btn{
     height: 44px;
