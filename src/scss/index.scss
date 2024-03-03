@@ -3,6 +3,7 @@
 @import './other/global.scss';
 @import './other/sitecomponents/primary_btn.scss';
 @import './other/sitecomponents/card.scss';
+@import './other/sitecomponents/mailing.scss';
 
 @import './other/pagescss/header.scss';
 
@@ -308,6 +309,20 @@
   }
 
 }
+
+
+
+.mailing-form{
+  margin-top: 60px;
+  &__header{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+  }
+}
+
 
 
 // end Pref

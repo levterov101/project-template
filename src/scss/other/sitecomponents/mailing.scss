@@ -50,20 +50,22 @@
   }
   &__btn{
     grid-area: btn;
-    width: 174px;
-    height: 44px;
-    border-radius: 12px;
-    background-color: $orange;
+    
+    & button{
+      width: 174px;
+      height: 44px;
+      border-radius: 12px;
+      background-color: $orange;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
-    color: #FCFCFC;
-    font-size: 16px;
-    font-weight: 600;
+      color: #FCFCFC;
+      font-size: 16px;
+      font-weight: 600;
 
-    border: none;
+      border: none;
 
 
     cursor: pointer;
@@ -74,6 +76,7 @@
     &:active{
       transition: none;
       background-color: $orange3;
+    }
     }
   }
   &__policy{
@@ -166,10 +169,6 @@
 
 @media(max-width: map-get($breakpoints, large)){
 
-  .container{
-    max-width: map-get($map: $breakpoints, $key: medium);
-  }
-
   .mailing{
     grid-template-areas: "text boxes boxes"
                         "policy mail btn";
@@ -186,5 +185,61 @@
     &__text{
       margin-right: 10px;
     }
+  }
+}
+
+@media(max-width: map-get($breakpoints, medium)){
+  .mailing{
+    grid-template-areas: "text"
+                          "boxes"
+                          "mail"
+                          "btn"
+                          "policy";
+
+    gap: 19px 0px;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto auto auto auto;
+
+    &__boxes{
+      margin-right: 0px;
+    }
+
+    &__label{
+      flex-direction: column;
+      gap: 4px;
+      
+      &:nth-child(n){
+        margin: 0px;
+      }
+
+      span{
+        font-size: 12px;
+        text-align: center;
+      }
+    }
+
+    &__mail{
+      height: 48px;
+      margin: 0px;
+    }
+
+    &__btn{
+      display: flex;
+      justify-content: center;
+    }
+
+    &__policy-block{
+      margin: 0px;
+    }
+
+    &__policy{
+      text-align: center;
+    }
+
+    &__text{
+      margin: 0;
+      font-size: 18px;
+    }
+
   }
 }
