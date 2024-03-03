@@ -2,6 +2,7 @@
 @import './other/_normalize.scss';
 @import './other/global.scss';
 @import './other/sitecomponents/primary_btn.scss';
+@import './other/sitecomponents/card.scss';
 
 @import './other/pagescss/header.scss';
 
@@ -17,6 +18,432 @@
 .main{
   margin-top: 50px;
 }
+
+.slider{
+
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  height: 400px;
+
+  &__list{
+    transition: all 0.3s ease;
+    transform: translate(0px, 0px);
+    gap: 10px;
+    display: flex;
+    width: 100%;
+    height: 100%;
+  }
+  &__item{
+    border-radius: 20px;
+    overflow: hidden;
+    flex-shrink: 0;
+    width: 100%;
+    height: 100%;
+    & img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__btn{
+    $btn: &;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: absolute;
+    width: 10%;
+    height: 100%;
+    border: none;
+    background: transparent;
+
+    &-icon{
+      background-color: rgba(110, 113, 145, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 33px;
+      height: 33px;
+      border-radius: 50%;
+      border: 2px solid rgba(255,255,255, 0.3);
+    }
+
+    &:hover{
+      .slider__btn-icon{
+        background-color: $orange;
+      }
+    }
+  }
+
+  &__next{
+    right: 0;
+    top: 0;
+  }
+  &__prev{
+    left: 0;
+    top: 0;
+
+    & svg{
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.pagination{
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+
+  &__item{
+
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+
+    &--active{
+      .pagination__item-dot{
+        width: 22px;
+        background-color: $orange;
+        border-radius: 8px;
+      }
+    }
+
+    &-dot{
+      transition: all 0.3s ease;
+      width: 8px;
+      height: 8px;
+      background-color: $gray6;
+      border-radius: 50%;
+    }
+  }
+}
+
+
+.popular{
+  margin-top: 30px;
+
+  &__header{
+    color: $gray2;
+    font-weight: 700;
+    font-size: 32px;
+
+    margin-bottom: 30px;
+  }
+
+  &__list{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+
+  &__icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 3px solid $orange;
+
+    svg{
+      max-width: 60%;
+    }
+  }
+
+  &__item{
+    flex: 1;
+
+    &-header{
+      transition: all 0.3s ease;
+      margin-top: 12px;
+
+      font-size: 18px;
+      font-weight: 700;
+      color: $gray1;
+      
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      span{
+        text-transform: lowercase;
+        text-align: center;
+        &::first-letter{
+          text-transform: uppercase;
+        }
+      }
+    }
+
+
+    &:hover{
+      .popular__link{
+        border: 1px solid $orange2;
+      }
+
+      .popular__item-header{
+        color: $orange2;
+      }
+    }
+  }
+
+  &__link{
+    transition: all 0.3s ease;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    border: 1px solid $gray5;
+    background-color: $gray5;
+    border-radius: 20px;
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 24px 22px 24px 22px;
+  }
+
+}
+
+
+// Goods
+
+
+.goods{
+  margin-top: 60px;
+
+  &__header{
+    color: $gray1;
+    margin-bottom: 30px;
+  }
+}
+
+.goods__list {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-auto-rows: 1fr;
+  gap: 60px 30px;
+
+  color: rgba(110, 113, 145, 1);
+}
+
+.page-header{
+  font-size: 32px;
+  font-weight: 700;
+  color: $gray2;
+
+  &:nth-child(2n){
+    color: $gray1;
+  }
+}
+
+//
+
+
+// Pref
+
+
+.pref{
+  margin-top: 60px;
+
+  &__list{
+    display: flex;
+    justify-content: space-between;
+  }
+  &__item{
+    flex: 1;
+    border-radius: 20px;
+    border: 1px solid $gary4;
+
+    padding: 20px 30px 20px 35px;
+
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto 1fr;
+    grid-template-areas: "svg title"
+                         "svg text";
+
+    gap: 16px 22px;
+
+    &-svg{
+      grid-area: svg;
+
+      display: flex;
+      align-items: center;
+    }
+
+    &:nth-child(n){
+      margin-right: 30px;
+    }
+    &:last-child{
+      margin-right: 0px;
+    }
+  }
+
+  &__title{
+    grid-area: title;
+
+    color: #F56E1E;
+    font-size: 28px;
+    font-weight: 700;
+  }
+  &__text{
+    grid-area: text;
+    
+    font-size: 16px;
+    font-weight: 400;
+    color: rgba(110, 113, 145, 1);
+  }
+
+}
+
+
+// end Pref
+
+@media(max-width: map-get($map: $breakpoints, $key: large)){
+  .slider{
+    height: 264px;
+  }
+
+  .popular{
+    &__header{
+      font-size: 28px;
+    }
+
+    &__item{
+      &-header{
+        font-size: 16px;
+      }
+    }
+  }
+
+  .goods__list{
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .goods__item{
+    &:nth-child(n + 5){
+      display: none;
+    }
+  }
+
+  .page-header{
+    font-size: 28px;
+  }
+
+
+  .pref{
+    &__item{
+  
+      gap: 16px 16px;
+
+      grid-template-areas: "svg title"
+                            "text text";
+      grid-template-columns: auto 1fr;
+
+      &-svg{
+        width: 72px;
+        height: 72px;
+      }
+    }
+  
+    &__title{
+      display: flex;
+      align-items: center;
+      font-size: 22px;
+    }
+  }
+  
+}
+
+
+@media(max-width: map-get($map: $breakpoints, $key: medium)){
+  .slider{
+    height: 189px;
+  }
+
+  .goods__list{
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .goods__item{
+    &:nth-child(n + 3){
+      display: none;
+    }
+  }
+
+  .popular{
+    &__item{
+      &-header{
+        font-size: 14px;
+      }
+    }
+
+    &__icon{
+      width: 65px;
+      height: 65px;
+    }
+  }
+
+  .pref{
+
+    &__list{
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 1fr 1fr;
+      gap: 30px;
+    }
+    
+    &__item{
+      gap: 16px;
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto 1fr;
+      grid-template-areas: 
+      "svg"
+      "title"
+      "text";
+
+      &:nth-child(n){
+        margin: 0;
+      }
+
+      &-svg{
+        height: 90px;
+        width: 100%;
+        justify-content: center;
+
+        & svg{
+          height: 100%;
+        }
+      }
+    }
+    &__title{
+      justify-content: center;
+    }
+    &__text{
+      text-align: center;
+    }
+  
+    &__title{
+      display: flex;
+      align-items: center;
+      font-size: 28px;
+    }
+  }
+}
+
 
 .test-list{
   &__block{
